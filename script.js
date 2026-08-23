@@ -1,16 +1,19 @@
-// script.js - Complete refined version
-(function() {
-  'use strict';
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
 
-  // Translations object with complete coverage
+  // Translations object
   const translations = {
     en: {
       // Navigation
       home: 'Home',
       properties: 'Properties',
       contact: 'Contact',
-      brandAr: 'شركة سمة المتحدة العقارية',
       brandEn: 'SAMA United Real Estate Co',
+      brandAr: 'شركة سمة المتحدة العقارية',
       
       // Hero
       heroEyebrow: 'Real Estate Consultant · Al Khobar',
@@ -41,34 +44,6 @@
       // Featured
       featuredHeading: 'Featured Properties',
       viewAll: 'View All Properties',
-      
-      // Properties page
-      propertiesHeading: 'Our Properties',
-      propertiesSubtitle: 'Explore our curated selection of premium properties.',
-      filterAll: 'All',
-      filterResidential: 'Residential',
-      filterCommercial: 'Commercial',
-      filterFamily: 'Family',
-      filterAvailable: 'Available',
-      
-      // Contact page
-      contactHeading: 'Talk to an Advisor',
-      contactSubtitle: 'Our team is ready to help you with your real-estate requirements.',
-      formHeading: 'Send an Inquiry',
-      labelName: 'Full Name',
-      labelEmail: 'Email',
-      labelPhone: 'Phone',
-      labelPropertyType: 'Property Type',
-      labelMessage: 'Message',
-      optionResidential: 'Residential',
-      optionCommercial: 'Commercial',
-      optionFamily: 'Family',
-      optionOther: 'Other',
-      submitBtn: 'Send Inquiry',
-      locationHeading: 'Visit our location',
-      locationAddress: 'Al-Thuqbah, Al Khobar, Saudi Arabia',
-      ctaHeading: 'Ready to find the right property?',
-      ctaSubtitle: 'Speak with our real-estate advisor and get professional property guidance.',
       
       // Footer
       footerTagline: 'Premium real estate consultancy in Al Khobar.',
@@ -112,21 +87,24 @@
       closed: 'Closed',
       nowOpen: 'Currently Open',
       nowClosed: 'Currently Closed',
-      
-      // Form validation
-      fillName: 'Please enter your full name',
-      validEmail: 'Please enter a valid email address',
-      fillPhone: 'Please enter your phone number',
-      fillMessage: 'Please enter your message',
-      formSuccess: 'Your inquiry has been sent successfully! We will contact you soon.'
+
+      // Legal & Services pages
+      privacyHeading: 'Privacy Policy',
+      privacySubtitle: 'Last updated: January 2026',
+      termsHeading: 'Terms of Service',
+      termsSubtitle: 'Last updated: January 2026',
+      cookieHeading: 'Cookie Policy',
+      cookieSubtitle: 'Last updated: January 2026',
+      servicesPageHeading: 'Our Services',
+      servicesPageSubtitle: 'Comprehensive real estate solutions for your needs'
     },
     ar: {
       // Navigation
       home: 'الرئيسية',
       properties: 'العقارات',
       contact: 'اتصل بنا',
-      brandAr: 'شركة سمة المتحدة العقارية',
       brandEn: 'SAMA United Real Estate Co',
+      brandAr: 'شركة سمة المتحدة العقارية',
       
       // Hero
       heroEyebrow: 'مستشار عقاري · الخبر',
@@ -157,34 +135,6 @@
       // Featured
       featuredHeading: 'عقارات مميزة',
       viewAll: 'عرض جميع العقارات',
-      
-      // Properties page
-      propertiesHeading: 'عقاراتنا',
-      propertiesSubtitle: 'استكشف مجموعتنا المختارة من العقارات المتميزة.',
-      filterAll: 'الكل',
-      filterResidential: 'سكني',
-      filterCommercial: 'تجاري',
-      filterFamily: 'عائلي',
-      filterAvailable: 'متاح',
-      
-      // Contact page
-      contactHeading: 'تحدث إلى مستشار',
-      contactSubtitle: 'فريقنا مستعد لمساعدتك في متطلباتك العقارية.',
-      formHeading: 'أرسل استفساراً',
-      labelName: 'الاسم الكامل',
-      labelEmail: 'البريد الإلكتروني',
-      labelPhone: 'الهاتف',
-      labelPropertyType: 'نوع العقار',
-      labelMessage: 'الرسالة',
-      optionResidential: 'سكني',
-      optionCommercial: 'تجاري',
-      optionFamily: 'عائلي',
-      optionOther: 'أخرى',
-      submitBtn: 'إرسال الاستفسار',
-      locationHeading: 'موقعنا',
-      locationAddress: 'الثقبة، الخبر، المملكة العربية السعودية',
-      ctaHeading: 'هل أنت مستعد للعثور على العقار المناسب؟',
-      ctaSubtitle: 'تحدث مع مستشارنا العقاري واحصل على إرشاد عقاري احترافي.',
       
       // Footer
       footerTagline: 'استشارات عقارية متميزة في الخبر.',
@@ -228,13 +178,16 @@
       closed: 'مغلق',
       nowOpen: 'مفتوح الآن',
       nowClosed: 'مغلق الآن',
-      
-      // Form validation
-      fillName: 'يرجى إدخال الاسم الكامل',
-      validEmail: 'يرجى إدخال بريد إلكتروني صحيح',
-      fillPhone: 'يرجى إدخال رقم الهاتف',
-      fillMessage: 'يرجى إدخال رسالتك',
-      formSuccess: 'تم إرسال استفسارك بنجاح! سنتواصل معك قريباً.'
+
+      // Legal & Services pages
+      privacyHeading: 'سياسة الخصوصية',
+      privacySubtitle: 'آخر تحديث: يناير 2026',
+      termsHeading: 'شروط الخدمة',
+      termsSubtitle: 'آخر تحديث: يناير 2026',
+      cookieHeading: 'سياسة ملفات الارتباط',
+      cookieSubtitle: 'آخر تحديث: يناير 2026',
+      servicesPageHeading: 'خدماتنا',
+      servicesPageSubtitle: 'حلول عقارية شاملة لاحتياجاتك'
     }
   };
 
@@ -251,11 +204,9 @@
       beds: 3,
       baths: 2,
       area: '180 m²',
-      areaAr: '180 م²',
       description: 'Spacious and modern family apartment with premium finishes.',
       descriptionAr: 'شقة عائلية واسعة وعصرية بتشطيبات فاخرة.',
       price: 'SAR 850,000',
-      priceAr: '850,000 ريال',
       status: 'available',
       image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80',
       badge: 'Residential'
@@ -271,11 +222,9 @@
       beds: 0,
       baths: 2,
       area: '250 m²',
-      areaAr: '250 م²',
       description: 'Premium commercial space in a prime business location.',
       descriptionAr: 'مساحة تجارية متميزة في موقع أعمال رئيسي.',
       price: 'SAR 1,200,000',
-      priceAr: '1,200,000 ريال',
       status: 'available',
       image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=600&q=80',
       badge: 'Commercial'
@@ -291,11 +240,9 @@
       beds: 4,
       baths: 3,
       area: '320 m²',
-      areaAr: '320 م²',
       description: 'Beautiful family villa with a private garden and modern amenities.',
       descriptionAr: 'فيلا عائلية جميلة مع حديقة خاصة ومرافق عصرية.',
       price: 'SAR 2,100,000',
-      priceAr: '2,100,000 ريال',
       status: 'available',
       image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80',
       badge: 'Family'
@@ -311,90 +258,23 @@
       beds: 2,
       baths: 2,
       area: '150 m²',
-      areaAr: '150 م²',
       description: 'Luxury apartment with sea view and premium amenities.',
       descriptionAr: 'شقة فاخرة مع إطلالة بحرية ومرافق متميزة.',
       price: 'SAR 1,500,000',
-      priceAr: '1,500,000 ريال',
       status: 'available',
       image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=600&q=80',
       badge: 'Residential'
-    },
-    {
-      id: 5,
-      category: 'commercial',
-      type: 'commercial',
-      title: 'Retail Space Downtown',
-      titleAr: 'مساحة تجزئة وسط المدينة',
-      location: 'Al Khobar',
-      locationAr: 'الخبر',
-      beds: 0,
-      baths: 1,
-      area: '120 m²',
-      areaAr: '120 م²',
-      description: 'Prime retail space in the heart of downtown Al Khobar.',
-      descriptionAr: 'مساحة تجزئة رئيسية في قلب وسط مدينة الخبر.',
-      price: 'SAR 950,000',
-      priceAr: '950,000 ريال',
-      status: 'available',
-      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80',
-      badge: 'Commercial'
-    },
-    {
-      id: 6,
-      category: 'family',
-      type: 'available',
-      title: 'Family Townhouse',
-      titleAr: 'منزل عائلي',
-      location: 'Al-Thuqbah, Al Khobar',
-      locationAr: 'الثقبة، الخبر',
-      beds: 3,
-      baths: 3,
-      area: '220 m²',
-      areaAr: '220 م²',
-      description: 'Comfortable family townhouse with community amenities.',
-      descriptionAr: 'منزل عائلي مريح مع مرافق مجتمعية.',
-      price: 'SAR 1,350,000',
-      priceAr: '1,350,000 ريال',
-      status: 'available',
-      image: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=600&q=80',
-      badge: 'Family'
     }
   ];
 
   // State management
-  let currentLanguage = 'en';
+  let currentLanguage = localStorage.getItem('sama_language') || 'en';
   let currentFilter = 'all';
 
-  // DOM element references
-  const elements = {};
-
-  // Initialize DOM references
-  function initElements() {
-    elements.header = document.getElementById('siteHeader');
-    elements.menuToggle = document.getElementById('menuToggle');
-    elements.mobileNav = document.getElementById('mobileNav');
-    elements.featuredGrid = document.getElementById('featuredGrid');
-    elements.allPropertiesGrid = document.getElementById('allPropertiesGrid');
-    elements.filterBar = document.getElementById('filterBar');
-    elements.contactForm = document.getElementById('contactForm');
-    elements.formSuccess = document.getElementById('formSuccess');
-    elements.formError = document.getElementById('formError');
-    elements.openingHoursContainer = document.getElementById('openingHoursContainer');
-    elements.hoursStatus = document.getElementById('hoursStatus');
-    elements.statsContainer = document.getElementById('statsContainer');
-  }
-
-  // Set language
+  // Language functions
   function setLanguage(lang) {
     currentLanguage = lang;
-    
-    // Save to localStorage
-    try {
-      localStorage.setItem('sama_language', lang);
-    } catch (e) {
-      console.warn('Unable to save language preference:', e);
-    }
+    localStorage.setItem('sama_language', lang);
     
     // Update HTML lang and dir
     document.documentElement.lang = lang;
@@ -418,7 +298,6 @@
     
     // Re-render dynamic content
     renderFeaturedProperties();
-    renderAllProperties();
     renderOpeningHours();
     updateOpeningStatus();
     
@@ -428,7 +307,6 @@
     }
   }
 
-  // Apply translations to static elements
   function applyTranslations() {
     const t = translations[currentLanguage];
     
@@ -438,23 +316,16 @@
       if (el) el.textContent = text;
     }
     
-    // Helper to set text for all matching elements
-    function setTextAll(selector, text) {
-      document.querySelectorAll(selector).forEach(el => {
-        el.textContent = text;
-      });
-    }
-    
     // Navigation
-    setTextAll('[data-nav="home"]', t.home);
-    setTextAll('[data-nav="properties"]', t.properties);
-    setTextAll('[data-nav="contact"]', t.contact);
+    document.querySelectorAll('[data-nav="home"]').forEach(el => el.textContent = t.home);
+    document.querySelectorAll('[data-nav="properties"]').forEach(el => el.textContent = t.properties);
+    document.querySelectorAll('[data-nav="contact"]').forEach(el => el.textContent = t.contact);
     
     // Brand
-    setTextAll('.brand-ar', t.brandAr);
-    setTextAll('.brand-en', t.brandEn);
-    setTextAll('.footer-brand-ar', t.brandAr);
-    setTextAll('.footer-brand-en', t.brandEn);
+    const brandAr = document.querySelector('.brand-ar');
+    const brandEn = document.querySelector('.brand-en');
+    if (brandAr) brandAr.textContent = t.brandAr;
+    if (brandEn) brandEn.textContent = t.brandEn;
     
     // Hero
     setText('#heroEyebrow', t.heroEyebrow);
@@ -487,249 +358,82 @@
     setText('#featuredHeading', t.featuredHeading);
     setText('#viewAllLink', t.viewAll);
     
-    // Properties page
-    setText('#propertiesHeading', t.propertiesHeading);
-    setText('#propertiesSubtitle', t.propertiesSubtitle);
-    setText('#filterAll', t.filterAll);
-    setText('#filterResidential', t.filterResidential);
-    setText('#filterCommercial', t.filterCommercial);
-    setText('#filterFamily', t.filterFamily);
-    setText('#filterAvailable', t.filterAvailable);
-    
-    // Contact page
-    setText('#contactHeading', t.contactHeading);
-    setText('#contactSubtitle', t.contactSubtitle);
-    setText('#formHeading', t.formHeading);
-    setText('#labelName', t.labelName);
-    setText('#labelEmail', t.labelEmail);
-    setText('#labelPhone', t.labelPhone);
-    setText('#labelPropertyType', t.labelPropertyType);
-    setText('#labelMessage', t.labelMessage);
-    setText('#optionResidential', t.optionResidential);
-    setText('#optionCommercial', t.optionCommercial);
-    setText('#optionFamily', t.optionFamily);
-    setText('#optionOther', t.optionOther);
-    setText('#submitBtn span', t.submitBtn);
-    setText('#locationHeading', t.locationHeading);
-    setText('#locationAddress', t.locationAddress);
-    setText('#ctaHeading', t.ctaHeading);
-    setText('#ctaSubtitle', t.ctaSubtitle);
-    setText('#ctaViewBtn span', t.viewProperties);
-    setText('#ctaAdvisorBtn span', t.talkAdvisor);
-    
     // Footer
-    setTextAll('#footerTagline', t.footerTagline);
-    setTextAll('#footerCompany', t.footerCompany);
-    setTextAll('#footerAbout', t.footerAbout);
-    setTextAll('#footerProperties', t.footerProperties);
-    setTextAll('#footerContact', t.footerContact);
-    setTextAll('#footerAdvisor', t.footerAdvisor);
-    setTextAll('#footerServices', t.footerServices);
-    setTextAll('#footerResidential', t.footerResidential);
-    setTextAll('#footerCommercial', t.footerCommercial);
-    setTextAll('#footerGuidance', t.footerGuidance);
-    setTextAll('#footerConsultation', t.footerConsultation);
-    setTextAll('#footerLegal', t.footerLegal);
-    setTextAll('#footerPrivacy', t.footerPrivacy);
-    setTextAll('#footerTerms', t.footerTerms);
-    setTextAll('#footerCookie', t.footerCookie);
-    setTextAll('#footerContactHeading', t.footerContactHeading);
-    setTextAll('#footerAddress', t.footerAddress);
-    setTextAll('#footerHoursHeading', t.footerHoursHeading);
-    setTextAll('#footerCopyright', t.footerCopyright);
+    setText('#footerTagline', t.footerTagline);
+    setText('#footerCompany', t.footerCompany);
+    setText('#footerAbout', t.footerAbout);
+    setText('#footerProperties', t.footerProperties);
+    setText('#footerContact', t.footerContact);
+    setText('#footerAdvisor', t.footerAdvisor);
+    setText('#footerServices', t.footerServices);
+    setText('#footerResidential', t.footerResidential);
+    setText('#footerCommercial', t.footerCommercial);
+    setText('#footerGuidance', t.footerGuidance);
+    setText('#footerConsultation', t.footerConsultation);
+    setText('#footerLegal', t.footerLegal);
+    setText('#footerPrivacy', t.footerPrivacy);
+    setText('#footerTerms', t.footerTerms);
+    setText('#footerCookie', t.footerCookie);
+    setText('#footerContactHeading', t.footerContactHeading);
+    setText('#footerAddress', t.footerAddress);
+    setText('#footerHoursHeading', t.footerHoursHeading);
+    setText('#footerCopyright', t.footerCopyright);
+    
+    // Footer brand
+    const footerBrandAr = document.querySelector('.footer-brand-ar');
+    const footerBrandEn = document.querySelector('.footer-brand-en');
+    if (footerBrandAr) footerBrandAr.textContent = t.brandAr;
+    if (footerBrandEn) footerBrandEn.textContent = t.brandEn;
   }
 
-  // Render featured properties (home page)
-  function renderFeaturedProperties() {
-    if (!elements.featuredGrid) return;
-    
-    const t = translations[currentLanguage];
-    const featuredProps = properties.slice(0, 3);
-    
-    elements.featuredGrid.innerHTML = featuredProps.map(prop => 
-      createPropertyCard(prop, t)
-    ).join('');
-    
-    initializeIcons();
-    initializeAnimations();
-  }
-
-  // Render all properties (properties page)
-  function renderAllProperties(filter = currentFilter) {
-    if (!elements.allPropertiesGrid) return;
-    
-    const t = translations[currentLanguage];
-    let filteredProps = properties;
-    
-    if (filter !== 'all') {
-      filteredProps = properties.filter(p => 
-        p.category === filter || p.type === filter || p.status === filter
-      );
-    }
-    
-    elements.allPropertiesGrid.innerHTML = filteredProps.map(prop => 
-      createPropertyCard(prop, t)
-    ).join('');
-    
-    initializeIcons();
-    initializeAnimations();
-  }
-
-  // Create property card HTML
-  function createPropertyCard(prop, t) {
-    const isArabic = currentLanguage === 'ar';
-    const title = isArabic ? prop.titleAr : prop.title;
-    const location = isArabic ? prop.locationAr : prop.location;
-    const description = isArabic ? prop.descriptionAr : prop.description;
-    const price = isArabic ? prop.priceAr : prop.price;
-    const area = isArabic ? prop.areaAr : prop.area;
-    
-    const badgeText = isArabic ? 
-      (prop.badge === 'Residential' ? t.residential : prop.badge === 'Commercial' ? t.commercial : t.family) : 
-      prop.badge;
-    
-    return `
-      <article class="property-card fade-in">
-        <div class="property-image">
-          <img src="${prop.image}" alt="${title}" loading="lazy" decoding="async" width="600" height="400">
-          <span class="property-badge">${badgeText}</span>
-        </div>
-        <div class="property-body">
-          <h3 class="property-title">${title}</h3>
-          <p class="property-location">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            ${location}
-          </p>
-          <div class="property-features">
-            ${prop.beds > 0 ? `<span class="feature"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg> ${prop.beds} ${t.bedrooms}</span>` : ''}
-            <span class="feature"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1z"/><path d="M6 12V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v6"/></svg> ${prop.baths} ${t.bathrooms}</span>
-            <span class="feature"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/><path d="M8 13V3"/><path d="M16 13V3"/><path d="M8 3h8"/></svg> ${area}</span>
-          </div>
-          <p class="property-description">${description}</p>
-          <div class="property-footer">
-            <span class="property-price">${price}</span>
-            <button class="btn-view" aria-label="${t.viewProperty}: ${title}">
-              ${t.viewProperty}
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </article>
-    `;
-  }
-
-  // Render opening hours
-  function renderOpeningHours() {
-    if (!elements.openingHoursContainer) return;
-    
-    const t = translations[currentLanguage];
-    const hours = [
-      { day: t.saturday, time: '09:00–11:30, 15:30–21:30' },
-      { day: t.sunday, time: '09:00–11:30, 15:30–21:30' },
-      { day: t.monday, time: '09:00–11:30, 15:30–21:30' },
-      { day: t.tuesday, time: '09:00–11:30, 13:30–21:30' },
-      { day: t.wednesday, time: '09:00–11:30, 13:30–21:30' },
-      { day: t.thursday, time: '09:00–11:30, 13:30–21:30' },
-      { day: t.friday, time: t.closed }
-    ];
-    
-    elements.openingHoursContainer.innerHTML = hours.map(h => `
-      <div class="hours-row">
-        <span class="hours-day">${h.day}</span>
-        <span class="hours-time">${h.time}</span>
-      </div>
-    `).join('');
-  }
-
-  // Update opening status
-  function updateOpeningStatus() {
-    if (!elements.hoursStatus) return;
-    
-    const t = translations[currentLanguage];
-    const now = new Date();
-    const day = now.getDay();
-    const hour = now.getHours();
-    const minute = now.getMinutes();
-    const currentTime = hour * 60 + minute;
-    
-    let isOpen = false;
-    
-    // Convert JS day (0=Sunday) to our schedule (0=Saturday)
-    const scheduleDay = (day + 6) % 7;
-    
-    if (scheduleDay >= 0 && scheduleDay <= 5) {
-      const timeRanges = [];
+  // Language selector events
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const lang = this.getAttribute('data-lang');
+      setLanguage(lang);
       
-      if (scheduleDay <= 2) {
-        // Saturday, Sunday, Monday
-        timeRanges.push([9 * 60, 11 * 60 + 30]);
-        timeRanges.push([15 * 60 + 30, 21 * 60 + 30]);
-      } else {
-        // Tuesday, Wednesday, Thursday
-        timeRanges.push([9 * 60, 11 * 60 + 30]);
-        timeRanges.push([13 * 60 + 30, 21 * 60 + 30]);
+      // Close mobile nav if open
+      const mobileNav = document.getElementById('mobileNav');
+      if (mobileNav && mobileNav.classList.contains('open')) {
+        mobileNav.classList.remove('open');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        document.getElementById('menuToggle').setAttribute('aria-expanded', 'false');
       }
-      
-      isOpen = timeRanges.some(([start, end]) => currentTime >= start && currentTime <= end);
-    }
-    
-    if (isOpen) {
-      elements.hoursStatus.textContent = t.nowOpen;
-      elements.hoursStatus.className = 'hours-status hours-open';
-    } else {
-      elements.hoursStatus.textContent = t.nowClosed;
-      elements.hoursStatus.className = 'hours-status hours-closed';
-    }
-  }
+    });
+  });
 
-  // Contact form handling
-  function setupContactForm() {
-    if (!elements.contactForm) return;
-    
-    elements.contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+  // Mobile navigation
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', function() {
+      const isOpen = mobileNav.classList.contains('open');
+      mobileNav.classList.toggle('open');
+      mobileNav.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
       
-      const t = translations[currentLanguage];
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const message = document.getElementById('message').value.trim();
-      
-      let isValid = true;
-      let errorText = '';
-      
-      if (!name) {
-        isValid = false;
-        errorText = t.fillName;
-      } else if (!email || !email.includes('@') || !email.includes('.')) {
-        isValid = false;
-        errorText = t.validEmail;
-      } else if (!phone || phone.length < 7) {
-        isValid = false;
-        errorText = t.fillPhone;
-      } else if (!message) {
-        isValid = false;
-        errorText = t.fillMessage;
-      }
-      
-      if (!isValid) {
-        if (elements.formError) {
-          elements.formError.textContent = errorText;
-          elements.formError.classList.remove('hidden');
-          elements.formSuccess.classList.add('hidden');
-        }
-        return;
-      }
-      
-      // Simulate successful submission
-      if (elements.formSuccess) {
-        elements.formSuccess.textContent = t.formSuccess;
-        elements.formSuccess.classList.remove('hidden');
-        elements.formError.classList.add('hidden');
-        elements.contactForm.reset();
+      // Toggle menu icon
+      const menuIcon = menuToggle.querySelector('.icon-menu');
+      const closeIcon = menuToggle.querySelector('.icon-close');
+      if (menuIcon && closeIcon) {
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
       }
     });
   }
+
+  // Sticky header shadow
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function() {
+    if (header) {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+  });
 
   // Animated counter
   function animateCounter(element) {
@@ -756,214 +460,308 @@
     requestAnimationFrame(update);
   }
 
-  // Initialize counters
-  function initCounters() {
-    if (!elements.statsContainer) return;
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const counters = entry.target.querySelectorAll('.stat-number[data-count]');
-          counters.forEach(counter => {
-            if (!counter.classList.contains('animated')) {
-              counter.classList.add('animated');
-              if (counter.getAttribute('data-count') !== 'Local') {
-                animateCounter(counter);
-              }
-            }
-          });
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    
-    observer.observe(elements.statsContainer);
+  // Initialize counters on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counters = entry.target.querySelectorAll('.stat-number[data-count]');
+        counters.forEach(counter => {
+          if (!counter.classList.contains('animated')) {
+            counter.classList.add('animated');
+            animateCounter(counter);
+          }
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const statsContainer = document.getElementById('statsContainer');
+  if (statsContainer) {
+    observer.observe(statsContainer);
   }
 
-  // Initialize icons
-  function initializeIcons() {
+  // Render featured properties
+  function renderFeaturedProperties() {
+    const grid = document.getElementById('featuredGrid');
+    if (!grid) return;
+    
+    const t = translations[currentLanguage];
+    const featuredProps = properties.slice(0, 3);
+    
+    grid.innerHTML = featuredProps.map(prop => {
+      const title = currentLanguage === 'ar' ? prop.titleAr : prop.title;
+      const location = currentLanguage === 'ar' ? prop.locationAr : prop.location;
+      const description = currentLanguage === 'ar' ? prop.descriptionAr : prop.description;
+      const badge = currentLanguage === 'ar' ? 
+        (prop.badge === 'Residential' ? t.residential : prop.badge === 'Commercial' ? t.commercial : t.family) : 
+        prop.badge;
+      
+      return `
+        <article class="property-card fade-in">
+          <div class="property-image">
+            <img src="${prop.image}" alt="${title}" loading="lazy" decoding="async" width="600" height="400">
+            <span class="property-badge">${badge}</span>
+          </div>
+          <div class="property-body">
+            <h3 class="property-title">${title}</h3>
+            <p class="property-location">
+              <i data-lucide="map-pin"></i> ${location}
+            </p>
+            <div class="property-features">
+              ${prop.beds > 0 ? `<span class="feature"><i data-lucide="bed"></i> ${prop.beds} ${t.bedrooms}</span>` : ''}
+              <span class="feature"><i data-lucide="bath"></i> ${prop.baths} ${t.bathrooms}</span>
+              <span class="feature"><i data-lucide="maximize-2"></i> ${prop.area}</span>
+            </div>
+            <p class="property-description">${description}</p>
+            <div class="property-footer">
+              <span class="property-price">${prop.price}</span>
+              <a href="properties.html" class="btn-view">
+                ${t.viewProperty} <i data-lucide="arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+    
+    // Re-initialize Lucide icons
     if (typeof lucide !== 'undefined') {
-      try {
-        lucide.createIcons();
-      } catch (e) {
-        console.warn('Lucide icons initialization failed:', e);
-      }
+      lucide.createIcons();
     }
   }
 
-  // Initialize animations
-  function initializeAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = 'running';
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    document.querySelectorAll('.fade-in').forEach(el => {
-      observer.observe(el);
-    });
-  }
-
-  // Mobile navigation
-  function setupMobileNav() {
-    if (!elements.menuToggle || !elements.mobileNav) return;
-    
-    elements.menuToggle.addEventListener('click', function() {
-      const isOpen = elements.mobileNav.classList.contains('open');
-      
-      if (isOpen) {
-        elements.mobileNav.classList.remove('open');
-        elements.mobileNav.setAttribute('aria-hidden', 'true');
-        elements.menuToggle.setAttribute('aria-expanded', 'false');
-        elements.menuToggle.setAttribute('aria-label', 'Open menu');
-      } else {
-        elements.mobileNav.classList.add('open');
-        elements.mobileNav.setAttribute('aria-hidden', 'false');
-        elements.menuToggle.setAttribute('aria-expanded', 'true');
-        elements.menuToggle.setAttribute('aria-label', 'Close menu');
-      }
-    });
-    
-    // Close mobile nav when clicking outside
-    document.addEventListener('click', function(e) {
-      if (elements.mobileNav.classList.contains('open') && 
-          !elements.mobileNav.contains(e.target) && 
-          !elements.menuToggle.contains(e.target)) {
-        elements.mobileNav.classList.remove('open');
-        elements.mobileNav.setAttribute('aria-hidden', 'true');
-        elements.menuToggle.setAttribute('aria-expanded', 'false');
-        elements.menuToggle.setAttribute('aria-label', 'Open menu');
-      }
-    });
-    
-    // Close mobile nav on escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && elements.mobileNav.classList.contains('open')) {
-        elements.mobileNav.classList.remove('open');
-        elements.mobileNav.setAttribute('aria-hidden', 'true');
-        elements.menuToggle.setAttribute('aria-expanded', 'false');
-        elements.menuToggle.setAttribute('aria-label', 'Open menu');
-        elements.menuToggle.focus();
-      }
-    });
-  }
-
-  // Sticky header shadow
-  function setupStickyHeader() {
-    if (!elements.header) return;
-    
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) {
-        elements.header.classList.add('scrolled');
-      } else {
-        elements.header.classList.remove('scrolled');
-      }
-    }, { passive: true });
-  }
-
-  // Property filtering
+  // Property filtering (for properties page)
   function setupPropertyFilters() {
-    if (!elements.filterBar || !elements.allPropertiesGrid) return;
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const propertyGrid = document.getElementById('allPropertiesGrid');
     
-    elements.filterBar.addEventListener('click', function(e) {
-      const btn = e.target.closest('.filter-btn');
-      if (!btn) return;
-      
-      const filter = btn.getAttribute('data-filter');
-      currentFilter = filter;
-      
-      // Update active button
-      elements.filterBar.querySelectorAll('.filter-btn').forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-pressed', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-pressed', 'true');
-      
-      // Filter properties
-      renderAllProperties(filter);
-    });
-  }
-
-  // Language selector
-  function setupLanguageSelector() {
-    document.querySelectorAll('.lang-btn').forEach(btn => {
+    if (!filterButtons.length || !propertyGrid) return;
+    
+    filterButtons.forEach(btn => {
       btn.addEventListener('click', function() {
-        const lang = this.getAttribute('data-lang');
-        setLanguage(lang);
+        const filter = this.getAttribute('data-filter');
+        currentFilter = filter;
         
-        // Close mobile nav if open
-        if (elements.mobileNav && elements.mobileNav.classList.contains('open')) {
-          elements.mobileNav.classList.remove('open');
-          elements.mobileNav.setAttribute('aria-hidden', 'true');
-          elements.menuToggle.setAttribute('aria-expanded', 'false');
-        }
+        // Update active button
+        filterButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Filter properties
+        const filteredProps = filter === 'all' ? properties : properties.filter(p => 
+          p.category === filter || p.type === filter || p.status === filter
+        );
+        
+        renderAllProperties(filteredProps);
       });
     });
+    
+    // Initial render
+    renderAllProperties(properties);
   }
 
-  // Smooth scroll for anchor links
-  function setupSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  function renderAllProperties(props) {
+    const grid = document.getElementById('allPropertiesGrid');
+    if (!grid) return;
+    
+    const t = translations[currentLanguage];
+    
+    grid.innerHTML = props.map(prop => {
+      const title = currentLanguage === 'ar' ? prop.titleAr : prop.title;
+      const location = currentLanguage === 'ar' ? prop.locationAr : prop.location;
+      const description = currentLanguage === 'ar' ? prop.descriptionAr : prop.description;
+      const badge = currentLanguage === 'ar' ? 
+        (prop.badge === 'Residential' ? t.residential : prop.badge === 'Commercial' ? t.commercial : t.family) : 
+        prop.badge;
+      
+      return `
+        <article class="property-card fade-in">
+          <div class="property-image">
+            <img src="${prop.image}" alt="${title}" loading="lazy" decoding="async" width="600" height="400">
+            <span class="property-badge">${badge}</span>
+          </div>
+          <div class="property-body">
+            <h3 class="property-title">${title}</h3>
+            <p class="property-location">
+              <i data-lucide="map-pin"></i> ${location}
+            </p>
+            <div class="property-features">
+              ${prop.beds > 0 ? `<span class="feature"><i data-lucide="bed"></i> ${prop.beds} ${t.bedrooms}</span>` : ''}
+              <span class="feature"><i data-lucide="bath"></i> ${prop.baths} ${t.bathrooms}</span>
+              <span class="feature"><i data-lucide="maximize-2"></i> ${prop.area}</span>
+            </div>
+            <p class="property-description">${description}</p>
+            <div class="property-footer">
+              <span class="property-price">${prop.price}</span>
+              <button class="btn-view">
+                ${t.viewProperty} <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+    
+    // Re-initialize Lucide icons
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  }
+
+  // Opening hours
+  function renderOpeningHours() {
+    const container = document.getElementById('openingHoursContainer');
+    if (!container) return;
+    
+    const t = translations[currentLanguage];
+    const hours = [
+      { day: t.saturday, time: '09:00–11:30, 15:30–21:30' },
+      { day: t.sunday, time: '09:00–11:30, 15:30–21:30' },
+      { day: t.monday, time: '09:00–11:30, 15:30–21:30' },
+      { day: t.tuesday, time: '09:00–11:30, 13:30–21:30' },
+      { day: t.wednesday, time: '09:00–11:30, 13:30–21:30' },
+      { day: t.thursday, time: '09:00–11:30, 13:30–21:30' },
+      { day: t.friday, time: t.closed }
+    ];
+    
+    container.innerHTML = hours.map(h => `
+      <div class="hours-row">
+        <span class="hours-day">${h.day}</span>
+        <span class="hours-time">${h.time}</span>
+      </div>
+    `).join('');
+  }
+
+  function updateOpeningStatus() {
+    const statusEl = document.getElementById('hoursStatus');
+    if (!statusEl) return;
+    
+    const t = translations[currentLanguage];
+    const now = new Date();
+    const day = now.getDay(); // 0 = Sunday, 6 = Saturday
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    const currentTime = hour * 60 + minute;
+    
+    let isOpen = false;
+    
+    // Convert to our schedule (Saturday = 0, Sunday = 1, ..., Friday = 6)
+    // JS: Sunday=0, Monday=1, Tuesday=2, Wednesday=3, Thursday=4, Friday=5, Saturday=6
+    const scheduleDay = (day + 6) % 7; // Convert JS day to our schedule
+    
+    if (scheduleDay >= 0 && scheduleDay <= 5) { // Saturday to Thursday
+      const timeRanges = [];
+      
+      if (scheduleDay <= 2) { // Saturday, Sunday, Monday
+        timeRanges.push([9 * 60 + 0, 11 * 60 + 30]);
+        timeRanges.push([15 * 60 + 30, 21 * 60 + 30]);
+      } else { // Tuesday, Wednesday, Thursday
+        timeRanges.push([9 * 60 + 0, 11 * 60 + 30]);
+        timeRanges.push([13 * 60 + 30, 21 * 60 + 30]);
+      }
+      
+      isOpen = timeRanges.some(([start, end]) => currentTime >= start && currentTime <= end);
+    }
+    
+    if (isOpen) {
+      statusEl.textContent = t.nowOpen;
+      statusEl.className = 'hours-status hours-open';
+    } else {
+      statusEl.textContent = t.nowClosed;
+      statusEl.className = 'hours-status hours-closed';
+    }
+  }
+
+  // Contact form handling
+  function setupContactForm() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    
+    const successMsg = document.getElementById('formSuccess');
+    const errorMsg = document.getElementById('formError');
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Basic validation
+      const name = form.querySelector('#name').value.trim();
+      const email = form.querySelector('#email').value.trim();
+      const phone = form.querySelector('#phone').value.trim();
+      const propertyType = form.querySelector('#propertyType').value;
+      const message = form.querySelector('#message').value.trim();
+      
+      let isValid = true;
+      let errorText = '';
+      
+      if (!name) {
+        isValid = false;
+        errorText = currentLanguage === 'ar' ? 'يرجى إدخال الاسم الكامل' : 'Please enter your full name';
+      } else if (!email || !email.includes('@')) {
+        isValid = false;
+        errorText = currentLanguage === 'ar' ? 'يرجى إدخال بريد إلكتروني صحيح' : 'Please enter a valid email';
+      } else if (!phone) {
+        isValid = false;
+        errorText = currentLanguage === 'ar' ? 'يرجى إدخال رقم الهاتف' : 'Please enter your phone number';
+      } else if (!message) {
+        isValid = false;
+        errorText = currentLanguage === 'ar' ? 'يرجى إدخال رسالتك' : 'Please enter your message';
+      }
+      
+      if (!isValid) {
+        if (errorMsg) {
+          errorMsg.textContent = errorText;
+          errorMsg.classList.remove('hidden');
+          successMsg.classList.add('hidden');
         }
-      });
+        return;
+      }
+      
+      // Simulate successful submission
+      if (successMsg) {
+        successMsg.textContent = currentLanguage === 'ar' ? 
+          'تم إرسال استفسارك بنجاح! سنتواصل معك قريباً.' : 
+          'Your inquiry has been sent successfully! We will contact you soon.';
+        successMsg.classList.remove('hidden');
+        errorMsg.classList.add('hidden');
+        form.reset();
+      }
     });
   }
 
   // Initialize everything
   function init() {
-    // Initialize DOM references
-    initElements();
-    
-    // Load saved language
-    try {
-      const savedLang = localStorage.getItem('sama_language');
-      if (savedLang && (savedLang === 'en' || savedLang === 'ar')) {
-        currentLanguage = savedLang;
-      }
-    } catch (e) {
-      console.warn('Unable to load language preference:', e);
-    }
-    
     // Set initial language
     setLanguage(currentLanguage);
     
-    // Setup all functionality
-    setupMobileNav();
-    setupStickyHeader();
-    setupLanguageSelector();
+    // Render featured properties
+    renderFeaturedProperties();
+    
+    // Setup property filters
     setupPropertyFilters();
+    
+    // Render opening hours
+    renderOpeningHours();
+    
+    // Update opening status
+    updateOpeningStatus();
+    
+    // Setup contact form
     setupContactForm();
-    setupSmoothScroll();
-    initCounters();
     
     // Update opening status every minute
     setInterval(updateOpeningStatus, 60000);
     
-    // Initialize icons
-    initializeIcons();
-    
-    // Initialize animations
-    initializeAnimations();
-    
-    console.log('SAMA United Real Estate Co. website initialized');
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
   }
 
-  // Run initialization when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+  // Run initialization
+  init();
+});
